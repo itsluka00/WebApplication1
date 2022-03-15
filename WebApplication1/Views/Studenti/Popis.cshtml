@@ -1,0 +1,31 @@
+﻿@using WebApplication1.Models
+@model StudentiDB
+@{
+    ViewBag.Title = "Popis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Popis</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Spol</th>
+        <th>Oib</th>
+    </tr>
+
+    @foreach (var student in Model.vratiListu())
+    {
+        <tr>
+            <td>@student.ID</td>
+            <td>@student.Ime</td>
+            <td>@student.Prezime</td>
+            <td>@student.Oib</td>
+            <td>@Html.ActionLink("Info", "Detalji", new { id = student.ID })</td>
+            <td>@Html.CheckBox("redovan",student.redovanStudent)</td>
+        </tr>
+    }
+</table>
+

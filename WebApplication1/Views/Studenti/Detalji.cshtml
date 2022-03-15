@@ -1,0 +1,21 @@
+﻿@using WebApplication1.Models
+@model Student
+@{
+    ViewBag.Title = "Detalji";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string spol = "";
+    if (@Model != null && @Model.Spol == 'M')
+    {
+        spol = "Muski";
+    }
+    else { spol = "Zenski"; }
+}
+
+<h2>Detalji</h2>
+Prezime: @Model.Prezime<br />
+Ime: @Model.Ime<br />
+Spol: @Model.Spol<br />
+Godina Studija: @Model.godinaStudija<br />
+Oib: @Model.Oib<br />
+Datum Rodjenja: @Model.datumRodjenja.ToString("dd.mm.yyyy")<br />
